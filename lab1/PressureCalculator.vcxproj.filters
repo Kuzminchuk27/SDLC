@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{E08790C6-2290-4754-8531-40220B9D4C55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\model">
+      <UniqueIdentifier>{F65E981C-B859-49E8-B6C7-6C55BBCA61E0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\view">
+      <UniqueIdentifier>{889BECAB-DA46-42C2-A561-BA0CD697D259}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\controller">
+      <UniqueIdentifier>{5DF3A78F-D74A-493E-8663-A3817ADAA26F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\model\pressuremodel.cpp">
+      <Filter>Исходные файлы\model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\view\mainwindow.cpp">
+      <Filter>Исходные файлы\view</Filter>
+    </ClCompile>
+    <ClCompile Include="src\view\inputdialog.cpp">
+      <Filter>Исходные файлы\view</Filter>
+    </ClCompile>
+    <ClCompile Include="src\controller\pressurecontroller.cpp">
+      <Filter>Исходные файлы\controller</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\model\pressuremodel.h">
+      <Filter>Исходные файлы\model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\view\mainwindow.h">
+      <Filter>Исходные файлы\view</Filter>
+    </ClInclude>
+    <ClInclude Include="src\view\inputdialog.h">
+      <Filter>Исходные файлы\view</Filter>
+    </ClInclude>
+    <ClInclude Include="src\view\uihelpers.h">
+      <Filter>Исходные файлы\view</Filter>
+    </ClInclude>
+    <ClInclude Include="src\controller\pressurecontroller.h">
+      <Filter>Исходные файлы\controller</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="app.manifest" />
+  </ItemGroup>
+</Project>
