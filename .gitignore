@@ -1,0 +1,45 @@
+# Каталоги сборки
+bin/
+build/
+out/
+x64/
+[Dd]ebug/
+[Rr]elease/
+cmake-build-*/
+
+# Объектные, промежуточные и исполняемые файлы
+*.obj
+*.o
+*.pdb
+*.ilk
+*.idb
+*.exp
+*.lib
+*.exe
+*.tlog
+*.lastbuildstate
+*.recipe
+*.log
+*.embed.manifest
+*_manifest.rc
+
+# Служебные файлы и настройки Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+*.VC.db
+ipch/
+
+# Файлы, генерируемые CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+
+# Настройки других редакторов
+.vscode/
+
+# Системные файлы
+Thumbs.db
+desktop.ini
+.DS_Store
