@@ -14,11 +14,7 @@ package ParkUchetUi {
 
     // Рисунок mockup-main.png
     part 'Главное окно «ПаркУчёт»' : Window {
-        part 'Места' : Group {
-            part 'Всего мест' : Label;
-            part 'Занято' : Label;
-            part 'Свободно' : Label;
-        }
+        part 'Всего мест, занято, свободно' : Label;
         part 'Въезд автомобиля' : Group {
             part 'Госномер' : TextField;
             part 'Марка' : TextField;
@@ -33,16 +29,11 @@ package ParkUchetUi {
             part 'История' : Button;
             part 'Настройки' : Button;
         }
-        part 'Действующий тариф' : Label;
     }
 
     // Рисунок mockup-exit.png
     part 'Окно «Оформление выезда»' : Window {
-        part 'Автомобиль' : Group {
-            part 'Госномер' : Label;
-            part 'Марка' : Label;
-            part 'Время въезда' : Label;
-        }
+        part 'Госномер, марка, время въезда' : Label;
         part 'Выезд' : Group {
             part 'Время выезда' : TextField;
             part 'Длительность' : Label;
