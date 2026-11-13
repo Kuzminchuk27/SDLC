@@ -1,0 +1,7 @@
+ParkUchet::'Работа оператора';Case;LR;use-cases
+ParkUchet::'Оформить выезд';Action;;exit-flow
+ParkUchet::'Состояния сессии';State;;session-states
+ParkUchetUi::'Главное окно «ПаркУчёт»';Interconnection;LR;mockup-main
+ParkUchetUi::'Окно «Оформление выезда»';Interconnection;LR;mockup-exit
+ParkUchetUi::'Окно «История стоянок»';Interconnection;LR;mockup-history
+ParkUchetUi::'Окно «Настройки»';Interconnection;LR;mockup-settings

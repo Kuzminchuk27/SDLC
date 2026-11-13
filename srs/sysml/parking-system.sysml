@@ -22,100 +22,64 @@ package ParkUchet {
     }
 
     // Варианты использования (рисунок use-cases.png)
-    use case def 'Регистрация въезда' {
-        subject parking : ParkingSystem;
-        actor operator : Operator;
-        objective {
-            doc /* Создать сессию с госномером, маркой и временем въезда. */
+    use case 'Работа оператора' {
+        subject 'ПаркУчёт' : ParkingSystem;
+        actor 'Оператор' : Operator;
+
+        include use case 'Регистрация въезда';
+        include use case 'Оформление выезда' {
+            include use case 'Расчёт стоимости';
         }
-    }
-
-    use case def 'Расчёт стоимости' {
-        subject parking : ParkingSystem;
-        objective {
-            doc /* Рассчитать стоимость стоянки по тарифу на момент въезда. */
-        }
-    }
-
-    use case def 'Оформление выезда' {
-        subject parking : ParkingSystem;
-        actor operator : Operator;
-        objective {
-            doc /* Показать стоимость и завершить сессию после подтверждения. */
-        }
-        include use case calculate : 'Расчёт стоимости';
-    }
-
-    use case def 'Просмотр свободных мест' {
-        subject parking : ParkingSystem;
-        actor operator : Operator;
-    }
-
-    use case def 'Просмотр истории' {
-        subject parking : ParkingSystem;
-        actor operator : Operator;
-    }
-
-    use case def 'Настройка тарифа и вместимости' {
-        subject parking : ParkingSystem;
-        actor operator : Operator;
+        include use case 'Просмотр свободных мест';
+        include use case 'Просмотр истории';
+        include use case 'Настройка тарифа и вместимости';
     }
 
     // Оформление выезда (рисунок exit-flow.png)
-    action def 'Выбрать автомобиль';
-    action def 'Указать время выезда';
-    action def 'Показать ошибку времени';
-    action def 'Рассчитать стоимость';
-    action def 'Показать стоимость';
-    action def 'Завершить сессию';
-    action def 'Обновить свободные места';
-
     action def 'Оформить выезд' {
-        action select : 'Выбрать автомобиль';
-        action setTime : 'Указать время выезда';
-        action showError : 'Показать ошибку времени';
-        action calculate : 'Рассчитать стоимость';
-        action show : 'Показать стоимость';
-        action close : 'Завершить сессию';
-        action update : 'Обновить свободные места';
-
         attribute timeValid : Boolean;
         attribute confirmed : Boolean;
 
         first start;
-        then select;
-        then merge timeInput;
-        then setTime;
-        then decide checkTime;
-            if timeValid then calculate;
-            else showError;
-        first showError then timeInput;
-        first calculate then show;
-        then decide checkConfirm;
-            if confirmed then close;
+        then action 'Выбрать автомобиль';
+        then merge 'Ввод времени';
+        then action 'Указать время выезда';
+        then decide 'Проверка времени';
+            if timeValid then 'Рассчитать стоимость';
+            else 'Показать ошибку времени';
+
+        action 'Показать ошибку времени';
+        then 'Ввод времени';
+
+        action 'Рассчитать стоимость';
+        then action 'Показать стоимость';
+        then decide 'Проверка оплаты';
+            if confirmed then 'Завершить сессию';
             else done;
-        first close then update;
-        first update then done;
+
+        action 'Завершить сессию';
+        then action 'Обновить свободные места';
+        then done;
     }
 
     // Состояния сессии стоянки (рисунок session-states.png)
-    attribute def EntryRegistered;
-    attribute def ExitStarted;
-    attribute def ExitCancelled;
-    attribute def PaymentConfirmed;
+    attribute def 'Въезд';
+    attribute def 'Начат выезд';
+    attribute def 'Отмена';
+    attribute def 'Оплата принята';
 
     state def 'Состояния сессии' {
         entry; then 'Новая';
 
         state 'Новая';
-        accept EntryRegistered then 'На стоянке';
+        accept 'Въезд' then 'На стоянке';
 
         state 'На стоянке';
-        accept ExitStarted then 'Расчёт стоимости';
+        accept 'Начат выезд' then 'Расчёт стоимости';
 
         state 'Расчёт стоимости';
-        transition first 'Расчёт стоимости' accept ExitCancelled then 'На стоянке';
-        transition first 'Расчёт стоимости' accept PaymentConfirmed then 'Завершена';
+        transition first 'Расчёт стоимости' accept 'Отмена' then 'На стоянке';
+        transition first 'Расчёт стоимости' accept 'Оплата принята' then 'Завершена';
 
         state 'Завершена';
     }
@@ -125,7 +89,7 @@ package ParkUchet {
         doc /* При нуле свободных мест въезд отклоняется. */
     }
 
-    requirement def <'REQ-FUNC-007'> 'Расчёт стоимости' {
+    requirement def <'REQ-FUNC-007'> 'Правило расчёта стоимости' {
         doc /* Стоимость рассчитывается по тарифу на момент въезда. */
     }
 

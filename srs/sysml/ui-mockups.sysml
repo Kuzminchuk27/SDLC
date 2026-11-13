@@ -1,64 +1,76 @@
-// Макеты окон «ПаркУчёт» на языке SysML v2: окно – часть (part), элемент окна – вложенная часть.
+// Макеты окон «ПаркУчёт» на языке SysML v2.
+// Окно и группа элементов – части (part), элементы окна – вложенные части;
+// имя части – надпись, которую видит оператор, определение – вид элемента.
 // Изображения: images/mockup-main.png, mockup-exit.png, mockup-history.png, mockup-settings.png
 package ParkUchetUi {
-    private import ScalarValues::*;
 
-    // Элементы интерфейса
-    part def Window { attribute title : String; }
-    part def Label { attribute text : String; }
-    part def TextField { attribute caption : String; }
-    part def Button { attribute caption : String; }
-    part def Grid { attribute columns : String[1..*] ordered; }
+    // Виды элементов интерфейса
+    part def Window;
+    part def Group;
+    part def Label;
+    part def TextField;
+    part def Button;
+    part def Table;
 
     // Рисунок mockup-main.png
-    part mainWindow : Window {
-        :>> title = "ПаркУчёт";
-        part capacityInfo : Label { :>> text = "Всего мест"; }
-        part occupiedInfo : Label { :>> text = "Занято"; }
-        part freeInfo : Label { :>> text = "Свободно"; }
-        part plateField : TextField { :>> caption = "Госномер"; }
-        part brandField : TextField { :>> caption = "Марка"; }
-        part timeField : TextField { :>> caption = "Время въезда"; }
-        part entryButton : Button { :>> caption = "Зарегистрировать въезд"; }
-        part parkedGrid : Grid {
-            :>> columns = ("Госномер", "Марка", "Въезд", "Длительность");
+    part 'Главное окно «ПаркУчёт»' : Window {
+        part 'Места' : Group {
+            part 'Всего мест' : Label;
+            part 'Занято' : Label;
+            part 'Свободно' : Label;
         }
-        part exitButton : Button { :>> caption = "Оформить выезд"; }
-        part historyButton : Button { :>> caption = "История"; }
-        part settingsButton : Button { :>> caption = "Настройки"; }
-        part tariffInfo : Label { :>> text = "Тариф"; }
+        part 'Въезд автомобиля' : Group {
+            part 'Госномер' : TextField;
+            part 'Марка' : TextField;
+            part 'Время въезда' : TextField;
+            part 'Зарегистрировать въезд' : Button;
+        }
+        part 'Автомобили на стоянке' : Group {
+            part 'Госномер, марка, въезд, длительность' : Table;
+        }
+        part 'Действия' : Group {
+            part 'Оформить выезд' : Button;
+            part 'История' : Button;
+            part 'Настройки' : Button;
+        }
+        part 'Действующий тариф' : Label;
     }
 
     // Рисунок mockup-exit.png
-    part exitWindow : Window {
-        :>> title = "Оформление выезда";
-        part plateInfo : Label { :>> text = "Госномер"; }
-        part brandInfo : Label { :>> text = "Марка"; }
-        part entryInfo : Label { :>> text = "Въезд"; }
-        part exitField : TextField { :>> caption = "Выезд"; }
-        part durationInfo : Label { :>> text = "Длительность"; }
-        part tariffInfo : Label { :>> text = "Тариф"; }
-        part costInfo : Label { :>> text = "К оплате"; }
-        part confirmButton : Button { :>> caption = "Оплата принята"; }
-        part cancelButton : Button { :>> caption = "Отмена"; }
+    part 'Окно «Оформление выезда»' : Window {
+        part 'Автомобиль' : Group {
+            part 'Госномер' : Label;
+            part 'Марка' : Label;
+            part 'Время въезда' : Label;
+        }
+        part 'Выезд' : Group {
+            part 'Время выезда' : TextField;
+            part 'Длительность' : Label;
+            part 'Тариф' : Label;
+            part 'К оплате, BYN' : Label;
+        }
+        part 'Кнопки' : Group {
+            part 'Оплата принята' : Button;
+            part 'Отмена' : Button;
+        }
     }
 
     // Рисунок mockup-history.png
-    part historyWindow : Window {
-        :>> title = "История стоянок";
-        part historyGrid : Grid {
-            :>> columns = ("Госномер", "Въезд", "Выезд", "Сумма, BYN");
-        }
-        part closeButton : Button { :>> caption = "Закрыть"; }
+    part 'Окно «История стоянок»' : Window {
+        part 'Госномер, въезд, выезд, сумма' : Table;
+        part 'Закрыть' : Button;
     }
 
     // Рисунок mockup-settings.png
-    part settingsWindow : Window {
-        :>> title = "Настройки";
-        part capacityField : TextField { :>> caption = "Вместимость, мест"; }
-        part rateField : TextField { :>> caption = "Ставка за час, BYN"; }
-        part freeField : TextField { :>> caption = "Льготный период, мин"; }
-        part saveButton : Button { :>> caption = "Сохранить"; }
-        part cancelButton : Button { :>> caption = "Отмена"; }
+    part 'Окно «Настройки»' : Window {
+        part 'Параметры' : Group {
+            part 'Вместимость, мест' : TextField;
+            part 'Ставка за час, BYN' : TextField;
+            part 'Льготный период, мин' : TextField;
+        }
+        part 'Кнопки' : Group {
+            part 'Сохранить' : Button;
+            part 'Отмена' : Button;
+        }
     }
 }
