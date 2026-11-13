@@ -611,36 +611,36 @@
 | Идентификатор требования | Метод | Тест или артефакт | Статус |
 |----------------|---------------------|--------------------|--------|
 | REQ-INT-001 | Инспекция | srs/images/ | Запланировано |
-| REQ-INT-002 | Демонстрация | tests/UC-KEYBOARD.md | Запланировано |
-| REQ-INT-003 | Тест | tests/TC-ERRORS.md | Запланировано |
-| REQ-INT-004 | Инспекция | tests/UC-SCREEN.md | Запланировано |
-| REQ-INT-005 | Тест | tests/TC-OFFLINE.md | Запланировано |
-| REQ-INT-006 | Тест | tests/TC-EXPORT.md | Запланировано |
-| REQ-FUNC-001 | Тест | tests/TC-ENTRY.md | Запланировано |
-| REQ-FUNC-002 | Демонстрация | tests/TC-ENTRY.md | Запланировано |
-| REQ-FUNC-003 | Тест | tests/TC-ENTRY.md | Запланировано |
-| REQ-FUNC-004 | Тест | tests/TC-ENTRY.md | Запланировано |
-| REQ-FUNC-005 | Тест | tests/TC-ENTRY.md | Запланировано |
-| REQ-FUNC-006 | Тест | tests/TC-EXIT.md | Запланировано |
-| REQ-FUNC-007 | Тест | tests/TC-TARIFF.md | Запланировано |
-| REQ-FUNC-008 | Тест | tests/TC-EXIT.md | Запланировано |
-| REQ-FUNC-009 | Тест | tests/TC-SPACES.md | Запланировано |
-| REQ-FUNC-010 | Тест | tests/TC-LIST.md | Запланировано |
-| REQ-FUNC-011 | Тест | tests/TC-HISTORY.md | Запланировано |
-| REQ-FUNC-012 | Тест | tests/TC-HISTORY.md | Запланировано |
-| REQ-FUNC-013 | Тест | tests/TC-SETTINGS.md | Запланировано |
-| REQ-FUNC-014 | Тест | tests/TC-SETTINGS.md | Запланировано |
-| REQ-FUNC-015 | Тест | tests/TC-CANCEL.md | Запланировано |
-| REQ-FUNC-016 | Тест | tests/TC-EXPORT.md | Запланировано |
-| REQ-PERF-001 | Тест | tests/TC-PERF.md | Запланировано |
-| REQ-PERF-002 | Тест | tests/TC-PERF.md | Запланировано |
-| REQ-PERF-003 | Демонстрация | tests/UC-OPERATOR.md | Запланировано |
-| REQ-SEC-001 | Тест | tests/TC-SETTINGS.md | Запланировано |
+| REQ-INT-002 | Демонстрация | UC-KEYBOARD.md | Запланировано |
+| REQ-INT-003 | Тест | TC-ERRORS.md | Запланировано |
+| REQ-INT-004 | Инспекция | UC-SCREEN.md | Запланировано |
+| REQ-INT-005 | Тест | TC-OFFLINE.md | Запланировано |
+| REQ-INT-006 | Тест | TC-EXPORT.md | Запланировано |
+| REQ-FUNC-001 | Тест | TC-ENTRY.md | Запланировано |
+| REQ-FUNC-002 | Демонстрация | TC-ENTRY.md | Запланировано |
+| REQ-FUNC-003 | Тест | TC-ENTRY.md | Запланировано |
+| REQ-FUNC-004 | Тест | TC-ENTRY.md | Запланировано |
+| REQ-FUNC-005 | Тест | TC-ENTRY.md | Запланировано |
+| REQ-FUNC-006 | Тест | TC-EXIT.md | Запланировано |
+| REQ-FUNC-007 | Тест | TC-TARIFF.md | Запланировано |
+| REQ-FUNC-008 | Тест | TC-EXIT.md | Запланировано |
+| REQ-FUNC-009 | Тест | TC-SPACES.md | Запланировано |
+| REQ-FUNC-010 | Тест | TC-LIST.md | Запланировано |
+| REQ-FUNC-011 | Тест | TC-HISTORY.md | Запланировано |
+| REQ-FUNC-012 | Тест | TC-HISTORY.md | Запланировано |
+| REQ-FUNC-013 | Тест | TC-SETTINGS.md | Запланировано |
+| REQ-FUNC-014 | Тест | TC-SETTINGS.md | Запланировано |
+| REQ-FUNC-015 | Тест | TC-CANCEL.md | Запланировано |
+| REQ-FUNC-016 | Тест | TC-EXPORT.md | Запланировано |
+| REQ-PERF-001 | Тест | TC-PERF.md | Запланировано |
+| REQ-PERF-002 | Тест | TC-PERF.md | Запланировано |
+| REQ-PERF-003 | Демонстрация | UC-OPERATOR.md | Запланировано |
+| REQ-SEC-001 | Тест | TC-SETTINGS.md | Запланировано |
 | REQ-SEC-002 | Инспекция | sdd/ | Запланировано |
-| REQ-REL-001 | Тест | tests/TC-CRASH.md | Запланировано |
-| REQ-REL-002 | Тест | tests/TC-BACKUP.md | Запланировано |
-| REQ-AVAIL-001 | Тест | tests/TC-CRASH.md | Запланировано |
-| REQ-OBS-001 | Инспекция | tests/TC-LOG.md | Запланировано |
+| REQ-REL-001 | Тест | TC-CRASH.md | Запланировано |
+| REQ-REL-002 | Тест | TC-BACKUP.md | Запланировано |
+| REQ-AVAIL-001 | Тест | TC-CRASH.md | Запланировано |
+| REQ-OBS-001 | Инспекция | TC-LOG.md | Запланировано |
 | REQ-COMP-001 | Инспекция | sdd/ | Запланировано |
 | REQ-COMP-002 | Инспекция | srs/srs.md | Запланировано |
 | REQ-INST-001 | Демонстрация | README.md | Запланировано |
@@ -648,9 +648,9 @@
 | REQ-DIST-001 | Инспекция | sdd/ | Запланировано |
 | REQ-MAINT-001 | Инспекция | sdd/ | Запланировано |
 | REQ-REUSE-001 | Инспекция | sdd/ | Запланировано |
-| REQ-PORT-001 | Тест | tests/TC-ACCEPTANCE.md | Запланировано |
+| REQ-PORT-001 | Тест | TC-ACCEPTANCE.md | Запланировано |
 | REQ-COST-001 | Инспекция | README.md | Запланировано |
-| REQ-DEAD-001 | Демонстрация | tests/TC-ACCEPTANCE.md | Запланировано |
+| REQ-DEAD-001 | Демонстрация | TC-ACCEPTANCE.md | Запланировано |
 | REQ-POC-001 | Инспекция | Запрос на слияние | Запланировано |
 | REQ-CM-001 | Инспекция | История коммитов | Запланировано |
 
