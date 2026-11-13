@@ -3,9 +3,8 @@
 package ParkUchet {
     private import ScalarValues::*;
 
-    // Участники и система
+    // Участник и система
     part def Operator;
-    part def Administrator;
 
     part def ParkingSystem {
         attribute capacity : Integer;
@@ -47,11 +46,6 @@ package ParkUchet {
         include use case calculate : 'Расчёт стоимости';
     }
 
-    use case def 'Аннулирование записи' {
-        subject parking : ParkingSystem;
-        actor operator : Operator;
-    }
-
     use case def 'Просмотр свободных мест' {
         subject parking : ParkingSystem;
         actor operator : Operator;
@@ -64,7 +58,7 @@ package ParkUchet {
 
     use case def 'Настройка тарифа и вместимости' {
         subject parking : ParkingSystem;
-        actor administrator : Administrator;
+        actor operator : Operator;
     }
 
     // Оформление выезда (рисунок exit-flow.png)
@@ -90,11 +84,12 @@ package ParkUchet {
 
         first start;
         then select;
+        then merge timeInput;
         then setTime;
         then decide checkTime;
             if timeValid then calculate;
             else showError;
-        first showError then setTime;
+        first showError then timeInput;
         first calculate then show;
         then decide checkConfirm;
             if confirmed then close;
@@ -108,7 +103,6 @@ package ParkUchet {
     attribute def ExitStarted;
     attribute def ExitCancelled;
     attribute def PaymentConfirmed;
-    attribute def EntryAnnulled;
 
     state def 'Состояния сессии' {
         entry; then 'Новая';
@@ -117,15 +111,13 @@ package ParkUchet {
         accept EntryRegistered then 'На стоянке';
 
         state 'На стоянке';
-        transition first 'На стоянке' accept ExitStarted then 'Расчёт стоимости';
-        transition first 'На стоянке' accept EntryAnnulled then 'Аннулирована';
+        accept ExitStarted then 'Расчёт стоимости';
 
         state 'Расчёт стоимости';
         transition first 'Расчёт стоимости' accept ExitCancelled then 'На стоянке';
         transition first 'Расчёт стоимости' accept PaymentConfirmed then 'Завершена';
 
         state 'Завершена';
-        state 'Аннулирована';
     }
 
     // Основные требования к расчёту и учёту мест (полный перечень в srs/srs.md)

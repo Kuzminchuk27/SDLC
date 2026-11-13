@@ -20,14 +20,13 @@ package ParkUchetUi {
         part brandField : TextField { :>> caption = "Марка"; }
         part timeField : TextField { :>> caption = "Время въезда"; }
         part entryButton : Button { :>> caption = "Зарегистрировать въезд"; }
-        part searchField : TextField { :>> caption = "Поиск"; }
         part parkedGrid : Grid {
             :>> columns = ("Госномер", "Марка", "Въезд", "Длительность");
         }
         part exitButton : Button { :>> caption = "Оформить выезд"; }
-        part annulButton : Button { :>> caption = "Аннулировать"; }
         part historyButton : Button { :>> caption = "История"; }
         part settingsButton : Button { :>> caption = "Настройки"; }
+        part tariffInfo : Label { :>> text = "Тариф"; }
     }
 
     // Рисунок mockup-exit.png
@@ -47,16 +46,9 @@ package ParkUchetUi {
     // Рисунок mockup-history.png
     part historyWindow : Window {
         :>> title = "История стоянок";
-        part fromField : TextField { :>> caption = "С"; }
-        part toField : TextField { :>> caption = "По"; }
-        part plateFilter : TextField { :>> caption = "Номер"; }
-        part findButton : Button { :>> caption = "Найти"; }
         part historyGrid : Grid {
-            :>> columns = ("Госномер", "Въезд", "Выезд", "Сумма", "Статус");
+            :>> columns = ("Госномер", "Въезд", "Выезд", "Сумма, BYN");
         }
-        part countInfo : Label { :>> text = "Записей"; }
-        part totalInfo : Label { :>> text = "Итого"; }
-        part exportButton : Button { :>> caption = "Выгрузить в CSV"; }
         part closeButton : Button { :>> caption = "Закрыть"; }
     }
 
